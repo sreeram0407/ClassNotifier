@@ -28,6 +28,13 @@ try:
     # Click the Search button
     search_button = wait.until(EC.element_to_be_clickable((By.ID, "search-button")))
     search_button.click()
+    
+    class_id = "detailsOpen-24053-104195"  # The ID for the class element
 
+    # Wait for the class element to be present in the results
+    class_element = wait.until(EC.presence_of_element_located((By.ID, class_id)))
+
+except Exception as e:
+    print("An error occurred:", str(e))
 finally:
     driver.quit()
