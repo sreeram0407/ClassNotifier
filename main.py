@@ -25,14 +25,15 @@ try:
     number_input.click()
     number_input.send_keys('355')
     
+    # Enter Class ID to specify which class
+    classid_input = wait.until(EC.element_to_be_clickable((By.ID, 'keyword')))
+    classid_input.click()
+    classid_input.send_keys('24053')
+    
     # Click the Search button
     search_button = wait.until(EC.element_to_be_clickable((By.ID, "search-button")))
     search_button.click()
-    
-    class_id = "detailsOpen-24053-104195"  # The ID for the class element
-
-    # Wait for the class element to be present in the results
-    class_element = wait.until(EC.presence_of_element_located((By.ID, class_id)))
+    time.sleep(10)
 
 except Exception as e:
     print("An error occurred:", str(e))
